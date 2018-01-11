@@ -1,0 +1,216 @@
+body {
+	background-color: #333;
+	color: #c0c0c0;
+	text-align: center;
+  text-shadow: 1px 2px 3px #000000;
+	overflow: hidden;
+}
+hr {
+	background-color: #888;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.tooltip-inner {
+	font-size: 10pt;
+  white-space: pre-wrap;
+}
+.title {
+	height: 5vh;
+}
+.setcolheight {
+	height: 50vh;
+}
+.hidden {
+	display: none;
+}
+.bg555 {
+	background-color: #555;
+}
+#leftcontent {
+	width: 100%;
+	height: 48vh;
+	box-shadow: 3px 0px 10px #999999;
+}
+#infoandstats {
+	width: 85%;
+}
+.text-left {
+	float: left;
+	clear: left;
+}
+.text-right {
+	float: right;
+	clear: right;
+	font-size: 13px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+#foodContent {
+	height: 80vh;
+	box-shadow: 0px -2px 15px #999999;
+	overflow: auto;
+}
+#settingsContent {
+	height: 80vh;
+	box-shadow: 0px -2px 15px #999999;
+} .settingsButton {
+	margin-top: 10px;
+}
+#blankcontent {
+	width: 20%;
+}
+#grassimage {
+	width: 60%;
+}
+#grass {
+	width: 100%;
+	height: 20vh;
+	cursor: pointer;
+} #grass:hover {
+	background-color: #444;
+} #grass:active {
+	background-color: #333;
+}
+#foragercontent {
+	font-size: 12pt;
+	width: 20%;
+} #foragerButton {
+	font-size: 10px;
+}
+#foodconversion {
+	width: 90%;
+}
+.addToFood {
+	font-size: 11px;
+	width: 24%;
+	height: 7.5vh;
+	margin: auto;
+	margin-top: 5px;
+  box-shadow: 0px 0px 10px #111;
+	background-color: #E74C3C;
+} .addToFood:hover {
+	background-color: #CB4335;
+} .addToFood:active {
+	background-color: #B03A2E;
+}
+#foodinformation {
+	width: 40%;
+	margin-top: 1vh;
+} .foodtype {
+	width: 100%;
+	font-size: 16px;
+	margin: -2.5px;
+}
+#colonycontent {
+	height: 65vh;
+	box-shadow: -3px 0px 10px #999999;
+} 
+#colonyButtons {
+	margin-top: 2.5vh;
+	height: 60vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+} .colonyButton {
+	font-size: 14px;
+	height: 10vh;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 95%;
+  box-shadow: 0px 0px 10px #111;
+	background-color: #17A589;
+} .colonyButton:hover {
+	background-color: #148F77;
+} .colonyButton:active {
+	background-color: #117864;
+} 
+.antContainer {
+  height: 24vh;
+  box-shadow: 0px 0px 10px #111;
+  width: 80%;
+} 
+.antButton {
+	font-size: 13px;
+	height: 8vh;
+	width: 100%;
+  background-color: #85C1E9;
+} .buyToQueen {
+	font-size: 8pt;
+	height: 4vh;
+  background-color: #85C1E9;
+	margin: auto;
+} .antButton:hover, .buyToQueen:hover {
+	background-color: #5DADE2;
+} .antButton:active, .buyToQueen:active {
+	background-color: #3498DB;
+}
+#upgrades {
+	height: 25vh;
+	box-shadow: -3px 2px 10px #999999;
+}
+#upgradeButtons {
+	margin-top: 2vh;
+	height: 21vh;
+	overflow: auto;
+}
+.upgradeButton {
+	width: 45%;
+	height: 5vh;
+	font-size: 8pt;
+	width: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-bottom: 4px;
+  box-shadow: 0px 0px 10px #111;
+	background-color: #B3B6B7;
+} .upgradeButton:hover {
+	background-color: #979A9A;
+} .upgradeButton:active {
+	background-color: #7B7D7D;
+}
+#gamelog {
+	padding-top: 10px;
+	width: 100%;
+	height: 40vh;
+	box-shadow: 2px 2px 5px #999999;
+	text-align: left;
+	overflow: auto;
+}
+#logheader {
+	margin-left: 8px;
+}
+#logButton {
+	float: right;
+	font-size: 12px;
+  box-shadow: 0px 0px 10px #111;
+	background-color: #444
+} #logButton:hover {
+	background-color: #333
+} #logButton:active {
+	background-color: #222
+}
+#logbody {
+	background-color: #333;
+	font-size: 12px;
+}
+#footer {
+	top: 30vh;
+}
+#footercontent {
+	height: 10vh;
+	box-shadow: 0px 3px 10px #999999;
+}
+.footerButton {
+	font-size: 12px;
+	width: 20%;
+	background-color: #999;
+	margin-left: 0.5vh;
+	margin-right: 0.5vh;
+  box-shadow: 0px 0px 10px #111;
+} #topfooter {
+	height: 4vh;
+	margin: 0.6vh;
+} #bottomfooter {
+	height: 4vh;
+	margin: 0.6vh;
+}

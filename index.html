@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+		<head>
+				<title>Ant Conquest</title>
+				<!-- Latest compiled Bootstrap CSS --> 
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    		<link href="interface.css" rel="stylesheet" type="text/css" />
+		</head>
+		<body id="body">
+			<h5 class="title">Ant Conquest</h5>
+			<div class="row setcolheight" id="setcolheight">
+				<div class="col-sm-3">
+					<div class="container-fluid bg555" id="leftcontent">
+				  </div>
+				</div>
+				<div class="col-sm-6">
+					<div class="container-fluid border border-dark rounded bg555" id="foodContent">
+						<div class="row">
+							<div class="container-fluid" id="blankcontent"></div>
+							<div class="container-fluid" id="grassimage" onclick="forageForFood(0)">
+          			<input type="image" id="grass" src="https://goo.gl/peif6c" />
+							</div>
+							<div class="container-fluid" id="foragercontent">
+				        <b>Foragers</b>: <span id="foragers">0</span><br />
+				        Cost:<br />
+				        <span id="foragerCost">10</span><br />
+				        <button class="btn btn-sm" id="foragerButton" onclick="buyForager()""
+					        title="Foraging 0 times per second">Buy</button>   
+							</div>
+						</div>
+						<div class="container-fluid" id="foodconversion">
+							<div class="row">
+			          <button class="btn addToFood hidden" id="seedsToFood" onclick="addToFood('seeds')"><b>Seeds</b> to <b>food</b></button>
+			          <button class="btn addToFood hidden" id="fruitToFood"><b>Fruit</b> to <b>food</b></button>
+			          <button class="btn addToFood hidden" id="honeydewToFood"><b>Honeydew</b> to <b>food</b></button>
+			          <button class="btn addToFood hidden" id="insectsToFood"><b>Insects</b> to <b>food</b></button>
+			        </div>
+			        <div class="row">
+			          <button class="btn addToFood hidden" id="honeyToFood"><b>Honey</b> to <b>food</b></button>
+			          <button class="btn addToFood hidden" id="animalsToFood"><b>Animals</b> to <b>food</b></button>
+			          <button class="btn addToFood hidden" id="fungiToFood"><b>Fungi</b> to <b>food</b></button>
+			          <button class="btn addToFood hidden" id="nectarToFood"><b>Nectar</b> to <b>food</b></button>
+			        </div>
+			      </div>
+			      <div class="container-fluid" id="foodinformation">
+					    <p><span id="foodsupply"><b>Food Supply</b>:<br /><span id="food">0</span></span></p>
+		          <div class="foodtype hidden" id="seedinfo">
+		          	<span class="text-left"><b>Seeds</b>: </span>
+		            <span class="text-right"><span id="seeds">0</span> 
+		            (<span id="seedsPerSecond">0</span> /s)</span>
+		          </div>
+		          <div class="foodtype hidden" id="fruitinfo">
+		          	<span class="text-left"><b>Fruit</b>: </span>
+		            <span class="text-right"><span id="fruit">0</span> 
+		            (<span id="fruitPerSecond">0</span> /s)</span>
+		          </div>
+		          <div class="foodtype hidden" id="honeydewinfo">
+		          	<span class="text-left"><b>Honeydew</b>: </span>
+		            <span class="text-right"><span id="honeydew">0</span> 
+		            (<span id="honeydewPerSecond">0</span> /s)</span>
+		          </div>
+		          <div class="foodtype hidden" id="insectinfo">
+		          	<span class="text-left"><b>Insects</b>: </span>
+		            <span class="text-right"><span id="insects">0</span> 
+		            (<span id="insectsPerSecond">0</span> /s)</span>
+		          </div>
+		          <div class="foodtype hidden" id="honeyinfo">
+		          	<span class="text-left"><b>Honey</b>: </span>
+		            <span class="text-right"><span id="honey">0</span> 
+		            (<span id="honeyPerSecond">0</span> /s)</span>
+		          </div>
+		          <div class="foodtype hidden" id="animalinfo">
+		          	<span class="text-left"><b>Animals</b>: </span>
+		            <span class="text-right"><span id="animals">0</span> 
+		            (<span id="animalsPerSecond">0</span> /s)</span>
+		          </div>
+		          <div class="foodtype hidden" id="fungiinfo">
+		          	<span class="text-left"><b>Fungi</b>: </span>
+		            <span class="text-right"><span id="fungi">0</span> 
+		            (<span id="fungiPerSecond">0</span> /s)</span>
+		          </div>
+		          <div class="foodtype hidden" id="nectarinfo">
+		          	<span class="text-left"><b>Nectar</b>: </span>
+		            <span class="text-right"><span id="nectar">0</span> 
+		            (<span id="nectarPerSecond">0</span> /s)</span>
+		          </div>
+			      </div>
+					</div>
+					<div class="container-fluid border border-dark rounded bg555 hidden" id="settingsContent">
+			      <button class="settingsButton" onclick="saveGame('Save')">Save Game</button>
+			      <button class="settingsButton" onclick="deleteGame()">Delete Save</button><br /><br />
+			      <p><input id="impexpbox" type="text" name="impexp"><button id="copytoclipboard">Copy</button></p>
+			      <button class="settingsButton" onclick="importGame()">Import Game</button>
+			      <button class="settingsButton" onclick="exportGame()">Export Game</button>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="container-fluid border border-dark rounded bg555" id="colonycontent">
+						<div id="colonyButtons">
+				      <button class="btn btn-block hidden colonyButton" id="viewMeadowAnts" type="button" onclick="displayAnts('meadow')">
+				        <b>Meadow Ant Colonies</b>: <span id="meadowColonies">0</span><br />
+				        <span id="meadowDisplay">Display Colony Information</span>
+				      </button>
+					      <div class="btn-group-vertical hidden antContainer" id="meadowAntContainer">
+					      	<button class="btn antButton border border-dark rounded" id="meadowColony">New Colony Cost:<br />
+						      		<span id="meadowColonyCost1">5</span> Qu, <span id="meadowColonyCost2">50</span> Wk</button>
+					      	<button class="btn antButton border border-dark rounded" id="meadowQueen" onclick="buyMeadowAnt('queen')">
+					      		Queens: <span id="meadowQueens">0</span><br />
+						      	Cost: <span id="meadowQueenCost">20</span> workers</button>
+					      	<div class="btn-group">
+						      	<button class="btn antButton border border-dark rounded" id="meadowWorker" onclick="buyMeadowAnt('worker')">
+						      		Workers: <span id="meadowWorkers">0</span><br />
+						      		Cost: <span id="meadowWorkerCost">10</span> food</button>
+					      		<div class="btn-group-vertical">
+							      	<button class="btn buyToQueen hidden border border-dark rounded" id="buyToMeadowQueen">To Queen</button>
+							      	<button class="btn buyToQueen hidden border border-dark rounded" id="autoMeadowQueen">Auto Queen</button>
+							      </div>
+					      	</div>
+					      </div>
+				      <button class="btn btn-block hidden colonyButton" id="viewGardenAnts" type="button">
+				        <b>Garden Ant Colonies</b>: <span id="gardenColonies">0</span><br />
+				        <span id="gardenDisplay">Display Colony Information</span>
+				      </button>
+					      <div class="btn-group-vertical hidden antContainer" id="gardenAntContainer">
+					      	<button class="btn antButton border border-dark rounded" id="buyGardenColony">Create New Colony</button>
+					      	<button class="btn antButton border border-dark rounded" id="buyGardenQueen">
+					      		Queens: <span id="gardenQueens">0</span></button>
+					      	<button class="btn antButton border border-dark rounded" id="buyGardenWorker">
+					      		Workers: <span id="gardenWorkers">0</span></button>
+					      </div>
+				      <button class="btn btn-block hidden colonyButton" id="viewHarvesterAnts" type="button">
+				        <b>Harvester Ant Colonies</b>: <span id="harvesterColonies">0</span><br />
+				        <span id="harvesterDisplay">Display Colony Information</span>
+				      </button>
+				      <button class="btn btn-block hidden colonyButton" id="viewCarpenterAnts" type="button">
+				        <b>Carpenter Ant Colonies</b>: <span id="carpenterColonies">0</span><br />
+				        <span id="carpenterDisplay">Display Colony Information</span>
+				      </button>
+				      <button class="btn btn-block hidden colonyButton" id="viewWeaverAnts" type="button">
+				        <b>Weaver Ant Colonies</b>: <span id="weaverColonies">0</span><br />
+				        <span id="weaverDisplay">Display Colony Information</span>
+				      </button>
+				      <button class="btn btn-block hidden colonyButton" id="viewRedStingingAnts" type="button">
+				        <b>Red Stinging Ant Colonies</b>: <span id="redStingingColonies">0</span><br />
+				        <span id="redStingingDisplay">Display Colony Information</span>
+				      </button>
+				      <button class="btn btn-block hidden colonyButton" id="viewHoneyPotAnts" type="button">
+				        <b>Honey Pot Ant Colonies</b>: <span id="honeyPotColonies">0</span><br />
+				        <span id="honeyPotDisplay">Display Colony Information</span>
+				      </button>
+				      <button class="btn btn-block hidden colonyButton" id="viewFireAnts" type="button">
+				        <b>Fire Ant Colonies</b>: <span id="fireColonies">0</span><br />
+				        <span id="fireDisplay">Display Colony Information</span>
+				      </button>
+				      <button class="btn btn-block hidden colonyButton" id="viewLeafCutterAnts" type="button">
+				        <b>Leaf Cutter Ant Colonies</b>: <span id="leafCutterColonies">0</span><br />
+				        <span id="leafCutterDisplay">Display Colony Information</span>
+				      </button>
+				      <button class="btn btn-block hidden colonyButton" id="viewTrapJawAnts" type="button">
+				        <b>Trap Jaw Ant Colonies</b>: <span id="trapJawColonies">0</span><br />
+				        <span id="trapJawDisplay">Display Colony Information</span>
+				      </button>
+				      <button class="btn btn-block hidden colonyButton" id="viewArgentineAnts" type="button">
+				        <b>Argentine Ant Colonies</b>: <span id="argentineColonies">0</span><br />
+				        <span id="argentineDisplay">Display Colony Information</span>
+				      </button>
+				      <button class="btn btn-block hidden colonyButton" id="viewArmyAnts" type="button">
+				        <b>Army Ant Colonies</b>: <span id="armyColonies">0</span><br />
+				        <span id="armyDisplay">Display Colony Information</span>
+				      </button>
+				      <button class="btn btn-block hidden colonyButton" id="viewBulletAnts" type="button">
+				        <b>Bullet Ant Colonies</b>: <span id="bulletColonies">0</span><br />
+				        <span id="bulletDisplay">Display Colony Information</span>
+				      </button>
+				     </div>
+					</div>
+					<div class="container-fluid border border-dark rounded bg555" id="upgrades">
+						<div id="upgradeButtons">
+				      <button class="btn btn-sm hidden upgradeButton" type="button" id="foodUpgrades">Food</button>
+				      <button class="btn btn-sm hidden upgradeButton" type="button" id="foragerUpgrades">Forager</button>
+				      <button class="btn btn-sm hidden upgradeButton" type="button" id="forageForAntsUpgrades">Forage For Ants</button>
+				      <button class="btn btn-sm hidden upgradeButton" type="button" id="addToFoodUpgrades">Add to Food</button>
+				      <button class="btn btn-sm hidden upgradeButton" type="button" id="buyToQueenUpgrades">Easy Queens</button>
+				      <button class="btn btn-sm hidden upgradeButton" onclick="buyUpgrade('meadow worker')" id="meadowWorkerUpgrades">Meadow Worker</button>
+				      <button class="btn btn-sm hidden upgradeButton" type="button" id="meadowQueenUpgrades">Meadow Queen</button>
+				      <button class="btn btn-sm hidden upgradeButton" type="button" id="meadowColonyUpgrades">Meadow Colony</button>
+				    </div>
+					</div>
+				</div>
+			</div>
+			<div class="row setcolheight">
+				<div class="col-sm-3 bg555" id="gamelog">
+					<div class="container-fluid" id="logheader">
+			    	<p>Log: <button class="btn btn-sm hidden" id="logButton">Expand</button></p>
+			    </div><hr />
+			    <div class="container-fluid" id="logbody"><span id="logtext"></span></div>
+				</div>
+				<div class="col-sm-6" id="footer">
+					<div class="container-fluid border border-dark rounded bg555" id="footercontent">
+			      <div class="row" id="topfooter">
+			        <button class="btn btn-sm footerButton" onclick="showFood()">Home</button>
+			        <button class="btn btn-sm footerButton" onclick="showSettings()">Settings</button>
+			      </div>
+			      <div class="row" id="bottomfooter">
+			        <button class="btn btn-sm footerButton" onclick="toggleGameTimer()"><span id="gameStatus">Pause</span></button>
+			        <button class="btn btn-sm footerButton" onclick="saveGame('Save')">Quick Save</button>
+			        <button class="btn btn-sm footerButton">Buy 1</button>
+			      </div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- jQuery, Popper.js, and Bootstrap -->
+			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+			<!-- Scripts for content -->
+			<script src="main.js"></script>
+			<script src="lz-string.js"></script>
+		</body>
+</html>
